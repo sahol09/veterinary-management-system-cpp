@@ -57,3 +57,6 @@ student IDs removed). The second commit fixes the problems found when reviewing 
 | Roles only enforced on "Edit Pet" | Deletes are admin-only; medical edits vet/admin-only |
 
 Tested with g++ 13 (`-Wall -Wextra`, no warnings) using a scripted session covering invalid input, role denial, past dates and corrupt data lines.
+
+---
+*Shared as a portfolio piece after marking. Please do not reuse this work in your own assessed coursework.*

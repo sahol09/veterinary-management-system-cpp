@@ -1,0 +1,2 @@
+1|Max|Labrador|5|1|1|Annual check-up due in June
+2|Luna|Siamese|3|0|2|Mild allergy to chicken

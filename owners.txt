@@ -1,0 +1,2 @@
+1|Jane Smith|12 Example Road, London|07000 000001|jane.smith@example.com
+2|Ali Khan|45 Sample Street, London|07000 000002|ali.khan@example.com

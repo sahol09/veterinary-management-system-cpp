@@ -1,12 +1,13 @@
 #include "Pet.h"
 #include <sstream>
 #include <vector>
+#include <stdexcept>
 using namespace std;
 
 Pet::Pet() : id(0), name(""), breed(""), age(0), medicalNotes(""), vaccinated(false), ownerId(0) {}
 
 Pet::Pet(int id, const string& name, const string& breed, int age, bool vaccinated, int ownerId, const string& notes)
-    : id(id), name(name), breed(breed), age(age), vaccinated(vaccinated), ownerId(ownerId), medicalNotes(notes) {
+    : id(id), name(name), breed(breed), age(age), medicalNotes(notes), vaccinated(vaccinated), ownerId(ownerId) {
 }
 
 int Pet::getId() const { return id; }
@@ -35,6 +36,7 @@ Pet Pet::fromString(const string& line) {
     string item;
     vector<string> parts;
     while (getline(ss, item, '|')) parts.push_back(item);
+    if (parts.size() < 6) throw runtime_error("Invalid pet record");
 
     int id = stoi(parts[0]);
     string name = parts[1];

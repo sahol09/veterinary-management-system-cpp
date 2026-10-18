@@ -1,6 +1,7 @@
 #include "Owner.h"
 #include <sstream>
 #include <vector>
+#include <stdexcept>
 using namespace std;
 
 Owner::Owner() : id(0), name(""), address(""), phone(""), email("") {}
@@ -29,6 +30,7 @@ Owner Owner::fromString(const string& line) {
     string item;
     vector<string> data;
     while (getline(ss, item, '|')) data.push_back(item);
+    if (data.size() < 5) throw runtime_error("Invalid owner record");
 
     int id = stoi(data[0]);
     return Owner(id, data[1], data[2], data[3], data[4]);

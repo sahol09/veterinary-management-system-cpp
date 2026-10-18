@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 using namespace std;
 
 Appointment::Appointment() : id(0), petId(0), date(""), time(""), status("Scheduled") {}
@@ -53,6 +54,8 @@ Appointment Appointment::parse(const string& line) {
     while (getline(ss, part, '|')) {
         tokens.push_back(part);
     }
+    // Guard against short/corrupt lines (operator[] would read out of bounds)
+    if (tokens.size() < 5) throw runtime_error("Invalid appointment record");
 
     int id = stoi(tokens[0]);
     int petId = stoi(tokens[1]);
